@@ -16,7 +16,7 @@ jobs:
     code:
       local_path: src/prep
     environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:11
-    compute: azureml:NODE
+    compute: azureml:southcentralus
     command: >-
       python prep.py 
       --raw_data ${{inputs.raw_data}} 
@@ -32,7 +32,7 @@ jobs:
     code: 
       local_path: src/transform
     environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:11
-    compute: azureml:NODE
+    compute: azureml:southcentralus
     command: >-
       python transform.py 
       --clean_data ${{inputs.clean_data}} 
@@ -50,7 +50,7 @@ jobs:
     code:
       local_path: src/train
     environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:11
-    compute: azureml:NODE
+    compute: azureml:southcentralus
     command: >-
       python train.py 
       --training_data ${{inputs.training_data}} 
@@ -72,7 +72,7 @@ jobs:
     code:
       local_path: src/predict
     environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:11
-    compute: azureml:NODE
+    compute: azureml:southcentralus
     command: >-
       python predict.py 
       --model_input ${{inputs.model_input}} 
@@ -90,7 +90,7 @@ jobs:
     code:
       local_path: src/score
     environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:11
-    compute: azureml:NODE
+    compute: azureml:southcentralus
     command: >-      
       python score.py 
       --predictions ${{inputs.predictions}} 
